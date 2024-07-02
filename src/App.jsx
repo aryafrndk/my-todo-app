@@ -1,11 +1,15 @@
 import React from 'react';
 import TodoList from './components/TodoList';
+import Header from './components/Header';
 import './index.css';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <TodoList />
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow bg-gray-100 flex items-center justify-center">
+        <TodoList />
+      </main>
     </div>
   );
 }
