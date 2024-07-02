@@ -1,9 +1,16 @@
-// Header.jsx
 import React, { useEffect, useState } from 'react';
-import { Sun, Moon } from 'lucide-react'; // Import icons
+import { Sun, Moon } from 'lucide-react';
 
 const Header = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Periksa preferensi dark mode dari localStorage
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode !== null) {
+      return JSON.parse(savedMode);
+    }
+    // Jika tidak ada preferensi tersimpan, periksa preferensi sistem
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
 
   useEffect(() => {
     const body = document.body;
@@ -12,6 +19,8 @@ const Header = () => {
     } else {
       body.classList.remove('dark');
     }
+    // Simpan preferensi dark mode di localStorage
+    localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
   }, [isDarkMode]);
 
   const toggleDarkMode = () => {
@@ -19,11 +28,11 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-600 text-white py-4 dark:bg-[#191919]">
+    <header className="bg-gray-600 text-white py-4 dark:bg-[#191919] ">
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-3xl font-bold">To-Do List App</h1>
         <button
-          className="flex items-center px-3 py-1 rounded-full bg-[#0c0c0c] dark:bg-white dark:text-black hover:bg-gray-700 focus:outline-none"
+          className="px-3 py-1 rounded-md bg-gray-800 text-white hover:bg-gray-700 focus:outline-none"
           onClick={toggleDarkMode}
         >
           {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
