@@ -36,8 +36,8 @@ const TodoList = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg dark:bg-[#2c2c2c] dark:text-white">
-      <h1 className="text-2xl font-bold mb-4">To-Do List</h1>
+    <div className="max-w-md mx-auto mt-10 p-16 bg-white rounded-lg shadow-lg dark:bg-[#2c2c2c] dark:text-white">
+      <h1 className="text-3xl font-bold mb-4">To-Do List</h1>
       <form onSubmit={(e) => { e.preventDefault(); addTodo(todoText); setTodoText(''); }}>
         <input
           type="text"
@@ -48,7 +48,7 @@ const TodoList = () => {
         />
       </form>
       <div>
-        {todos.map(todo => (
+        {todos.map(todo => (  
           <TodoItem
             key={todo.id}
             todo={todo}
