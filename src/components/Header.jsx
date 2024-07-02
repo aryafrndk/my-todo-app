@@ -32,7 +32,7 @@ const Header = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold sm:text-3xl">To-Do List App</h1>
         <button
-          className="px-3 py-1 rounded-md bg-gray-800 text-white hover:bg-gray-700 focus:outline-none"
+          className="px-3 py-1 rounded-full bg-gray-800 text-white hover:bg-gray-700 focus:outline-none"
           onClick={toggleDarkMode}
         >
           {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}

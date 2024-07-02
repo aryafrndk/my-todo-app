@@ -40,17 +40,17 @@ const TodoList = () => {
     <div className="max-w-md mx-auto mt-10 p-16 bg-white rounded-lg shadow-lg dark:bg-[#2c2c2c] dark:text-white">
       <h1 className="text-3xl font-bold mb-4">To-Do List</h1>
       <form onSubmit={(e) => { e.preventDefault(); addTodo(todoText); }}>
-        <div className="flex">
+        <div className="flex items-center mb-4">
           <input
             type="text"
             value={todoText}
             onChange={(e) => setTodoText(e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded mb-4 dark:bg-[#2c2c2c] dark:text-white"
+            className="flex-1 p-2 border border-gray-300 rounded dark:bg-[#2c2c2c] dark:text-white"
             placeholder="Add a new task"
           />
           <button
             type="submit"
-            className="ml-4 px-4 py-1 bg-gray-600 text-white hover:bg-gray-700 dark:bg-white dark:text-black rounded dark:hover:bg-white/70 focus:outline-none "
+            className="ml-4 px-4 py-2 rounded-full bg-gray-600 text-white hover:bg-gray-700 dark:bg-white dark:text-black dark:hover:bg-white/70 focus:outline-none"
           >
             Add
           </button>
